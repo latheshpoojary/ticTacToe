@@ -63,6 +63,11 @@ export class PlayGameComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.gameArray[0] = 'X';
+    this.gameArray[1] = 'O';
+    this.gameArray[2] = 'X';
+    this.gameArray[3] = 'O';
+    this.gameArray[4] = 'X';
     console.log('ng on init called ');
    
 
@@ -96,8 +101,8 @@ export class PlayGameComponent implements OnInit {
           this.gameArray[a] === this.gameArray[b] &&
           this.gameArray[b] === this.gameArray[c]
         ) {
-          this.message = 'The winner is X';
           this.showPopUp = true;
+          this.message = `Congratulations ${this.turn}! `
           this.change.detectChanges();
           console.log('pop up', this.showPopUp);
 
@@ -115,6 +120,10 @@ export class PlayGameComponent implements OnInit {
 
   onClick(box: any, index: number) {
     this.showPopUp = true;
+    this.message = `Congratulations ${this.turn}! `;
+   this.partyInterval= setInterval(() => this.partyTime(), 50);
+    
+
     this.change.detectChanges();
     console.log('clicked here');
     console.log(`${this.room_id}2`, this.turn);
@@ -217,6 +226,8 @@ export class PlayGameComponent implements OnInit {
 
   resetMatrix() {
     this.showPopUp = false;
+    this.gameArray.fill(null);
+    clearInterval(this.partyInterval)
     this.change.detectChanges();
   }
 
