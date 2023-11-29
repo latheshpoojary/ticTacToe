@@ -1,0 +1,15 @@
+<div class="wrapper">
+	<div class="game-box">
+		<ng-container *ngFor="let box of gameArray;index as i;">
+		<div (click)="onClick(box,i)" 
+		>{{box}}</div>
+		
+		</ng-container>
+		
+	</div>
+
+	<p>{{message}}</p>
+	
+</div>
+
+
