@@ -1,15 +1,24 @@
 <div class="wrapper">
 	<div class="game-box">
 		<ng-container *ngFor="let box of gameArray;index as i;">
-		<div (click)="onClick(box,i)" 
-		>{{box}}</div>
-		
+			<div (click)="onClick(box,i)">
+				<h1 [style.color]="box==='X'?'#000':'#fff'">{{box}}</h1>
+			</div>
 		</ng-container>
-		
 	</div>
-
-	<p>{{message}}</p>
-	
 </div>
 
+<!-- pop up  -->
+<div class="overlay" *ngIf="showPopUp" @fadeIn>
+	<div class="container">
+		<div class="image-container">
+			<img src="../../assets/image/celebrate.webp" alt="">
+		</div>
+		<div class="message">
+			<p>Congratulations {{turn}}! </p>
+			<p>You're the Tic Tac Toe champion! 🏆</p>
+		</div>
 
+		<button (click)="resetMatrix()">Play again</button>
+	</div>
+</div>

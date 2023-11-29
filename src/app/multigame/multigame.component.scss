@@ -1,0 +1,24 @@
+.multi{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3rem;
+	padding: 3rem;
+	background-image: url(../../assets/image/background.avif);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	object-fit: cover;
+	.create,.join{
+		button{
+			padding: 1rem 4rem;
+			border: none;
+			border-radius: 40px;
+			background-color: lightsalmon;
+			font-size: 2rem;
+			cursor: pointer;
+		}
+	}
+}
