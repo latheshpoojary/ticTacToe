@@ -3,68 +3,78 @@
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	padding: 2rem;
+	gap: 10vmin;
 	background: #030202;
 	background:linear-gradient(to right, #b25bf8, #8553ed);
 	.player-board{
-		width:500px;
-		height: 300px;
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
+		gap: 10vmin;
 		.container{
 			position: relative;
-		}
-		.outer{
-			width: 160px;
-			height: 160px;
+			outline-offset: 05px;
+			display: flex;
+			width: 15vmin;
+			height: 15vmin;
 			border-radius: 50%;
-			padding: 20px;
-			background: #fff;
 			box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
-			.inner{
-				width: 120px;
-				height: 120px;
+			h1{
+				font-size: 5vmin;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				z-index: 99;
+				background-color: rgb(196, 196, 196);
 				border-radius: 50%;
-				background-color: #fff;
-				box-shadow:inset rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
-				color: #000;
-				display: flex;
-				align-items: center;
-				justify-content: center;
+				display: grid;
+				place-content: center;
+				width: 11vmin;
+				height: 11vmin;
+			}
+			circle{
+				fill: none;
+				stroke-width: 2vmin;
+				stroke: url(#GradientColor);
+				stroke-dasharray: 450;
+				cx:7.5vmin;
+				cy: 7.5vmin;
+				r: 6.5vmin;
+				stroke-dashoffset: 0;
+				// animation: load 2s linear forwards;
+			}
+			svg{
+				width: 15vmin;
+				height: 15vmin;
+				position: absolute;
+				padding: 0vmin;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				background-color: white;
+				border-radius: 50%;
 			}
 		}
-		circle{
-			fill: none;
-			stroke-width: 20px;
-			stroke: url(#GradientColor);
-			stroke-dasharray: 450;
-			// stroke-dashoffset: 0;
-			// animation: load 2s linear forwards;
-		}
-		svg{
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
+	
 	}
 	.game-box{
-		padding: 3rem;
 		display: grid;
 		grid-template-columns: repeat(3,1fr);
+		gap: 3vmin;
 		div{
-			width: 100px;
-			height: 100px;
-			margin: .5rem;
+			width: 15vmin;
+			height: 15vmin;
 			background-color: #ffffff;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			z-index: 300;
 			// box-shadow: rgba(75, 206, 195, 0.527) 0px 3px 13px, rgba(75, 206, 195, 0.527) 0px 5px 5px, rgba(75, 206, 195, 0.527) 0px -4px 5px, rgba(75, 206, 195, 0.527) 0px 3px 5px, rgba(75, 206, 195, 0.527) 0px -3px 5px;
-			border-radius: 16px;
-			font-size:4rem;
+			border-radius: 1vmin;
+			font-size:5vmin;
 			font-weight: 900;
 			text-shadow:
 			0 0 5px #fff,

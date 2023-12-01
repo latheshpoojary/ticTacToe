@@ -15,6 +15,7 @@ export class MultigameComponent {
   id!: string | null;
   public userId!: number;
   public message = '';
+  public loading = false;
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
@@ -27,7 +28,7 @@ export class MultigameComponent {
 
   onClick(selectedField: string) {
     console.log(selectedField);
-    
+    this.loading = true;
     const obj = {
       roomID: this.form.value,
     };
@@ -36,7 +37,7 @@ export class MultigameComponent {
       this.http
         .post(`${environment.tunnerUrl}/createRoom`, obj)
         .subscribe((res:any) => {
-          console.log(res);
+          this.loading = false;
           if (res.status === 400) {
             this.message = "Opps ! the room already Exist";
             this.form.reset();
@@ -51,6 +52,7 @@ export class MultigameComponent {
       this.http
         .put(`${environment.tunnerUrl}/joinRoom`, obj)
         .subscribe((res: any) => {
+          this.loading = false;
           if (res.status === 400) {
             this.message = 'Opps! Room full';
             this.router.navigate(['multi']);
