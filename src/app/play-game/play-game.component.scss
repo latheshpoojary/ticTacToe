@@ -39,11 +39,11 @@
 				fill: none;
 				stroke-width: 2vmin;
 				stroke: url(#GradientColor);
-				stroke-dasharray: 450;
+				stroke-dasharray:450;
 				cx:7.5vmin;
 				cy: 7.5vmin;
 				r: 6.5vmin;
-				stroke-dashoffset: 0;
+				stroke-dashoffset: 230;
 				// animation: load 2s linear forwards;
 			}
 			svg{
@@ -76,7 +76,16 @@
 			border-radius: 1vmin;
 			font-size:5vmin;
 			font-weight: 900;
-			text-shadow:
+			
+			cursor: pointer;
+			transition: all .3s ease;
+			&:hover{
+				transform: scale(1.02);
+			}
+			h1{
+				font-size: 5vmin;
+				
+				text-shadow:
 			0 0 5px #fff,
 			0 0 10px #fff,
 			0 0 20px #fff,
@@ -85,13 +94,6 @@
 			0 0 90px  #d161ff,
 			0 0 100px  #d161ff,
 			0 0 150px #d161ff;;
-			cursor: pointer;
-			transition: all .3s ease;
-			&:hover{
-				transform: scale(1.02);
-			}
-			h1{
-				font-size: 4rem;
 			}
 		}
 		.disable{

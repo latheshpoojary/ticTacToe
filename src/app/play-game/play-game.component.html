@@ -29,7 +29,7 @@
 	<div class="game-box">
 		<ng-container *ngFor="let box of gameArray;index as i;">
 			<div (click)="onClick(box,i)">
-				<h1 [style.color]="box==='X'?'#000':'#fff'">{{box}}</h1>
+				<h1 [style.color]="box==='X'?'#000':'#3333ff'">{{box}}</h1>
 			</div>
 		</ng-container>
 	</div>

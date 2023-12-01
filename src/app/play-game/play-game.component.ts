@@ -83,11 +83,11 @@ export class PlayGameComponent implements OnInit {
       clearInterval(this.counterInterval);
       if (this.turn === 'X') {
         this.counterO = 0;
-        this.counterX = 0;
+        this.counterX = 230;
         this.startTimer('counterO');
       } else if (this.turn === 'O') {
         this.counterX = 0;
-        this.counterO = 0;
+        this.counterO = 230;
         this.startTimer('counterX');
       }
       this.currentPlayer = res.value;
@@ -218,19 +218,22 @@ export class PlayGameComponent implements OnInit {
       this.counterInterval = setInterval(() => {
         if (this.counterO === 450) {
           clearInterval;
+          // this.matchAnnouncement();
         } else {
           this.counterO += 1;
+          this.change.detectChanges();
+          
         }
-        this.change.detectChanges();
       }, 30);
     } else if (counter === 'counterO') {
       this.counterInterval = setInterval(() => {
         if (this.counterX === 450) {
           clearInterval;
+          // this.matchAnnouncement();
         } else {
           this.counterX += 1;
+          this.change.detectChanges();
         }
-        this.change.detectChanges();
       }, 30);
     }
   }
