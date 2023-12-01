@@ -10,6 +10,7 @@ import { FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { PlayGameComponent } from './play-game/play-game.component';
 import {MatButtonModule} from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogElementsExampleDialogComponent } from './dialog-elements-example-dialog/dialog-elements-example-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxLoadingModule } from "ngx-loading";
 
@@ -20,6 +21,7 @@ import { NgxLoadingModule } from "ngx-loading";
     HomeComponent,
     InputComponent,
     PlayGameComponent,
+    DialogElementsExampleDialogComponent
   ],
   imports: [
     BrowserModule,

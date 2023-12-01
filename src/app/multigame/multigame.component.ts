@@ -1,8 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-multigame',
@@ -10,6 +6,7 @@ import { environment } from 'src/environments/environment.development';
   styleUrls: ['./multigame.component.scss']
 })
 export class MultigameComponent {
+<<<<<<< HEAD
   public show_join = false;
   form = new FormControl();
   id!: string | null;
@@ -63,4 +60,7 @@ export class MultigameComponent {
         });
     }
   }
+=======
+
+>>>>>>> parent of 27cd2a8 (added timer to the playground)
 }

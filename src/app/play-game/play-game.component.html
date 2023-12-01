@@ -1,4 +1,5 @@
 <div class="wrapper">
+<<<<<<< HEAD
 	<div class="player-board">
 		<div class="container">
 					<h1>X</h1>
@@ -26,6 +27,8 @@
 		</div>
 
 	</div>
+=======
+>>>>>>> parent of 27cd2a8 (added timer to the playground)
 	<div class="game-box">
 		<ng-container *ngFor="let box of gameArray;index as i;">
 			<div (click)="onClick(box,i)">
@@ -43,7 +46,7 @@
 		</div>
 		<div class="message">
 			<p>{{message}}</p>
-			<p>{{cheerMessage}}</p>
+			<p>You're the Tic Tac Toe champion! 🏆</p>
 		</div>
 
 		<button (click)="resetMatrix()">Play again</button>

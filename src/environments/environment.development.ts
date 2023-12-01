@@ -9,6 +9,5 @@ export const environment = {
 		appId: "1:417690509637:web:25e4d259fddf2626d69e2c",
 		measurementId: "G-3ZE8QE7169"
 	
-	},
-	tunnerUrl:'https://tictactoe-stz8.onrender.com'
+	}
 };
