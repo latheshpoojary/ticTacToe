@@ -36,10 +36,10 @@
 </div>
 
 <!-- pop up  -->
-<div class="overlay" *ngIf="showPopUp" @fadeIn>
+<div class="overlay" *ngIf="showPopUp">
 	<div class="container">
 		<div class="image-container">
-			<img src="../../assets/image/celebrate.webp" alt="">
+			<img src="{{popUpImage}}" alt="">
 		</div>
 		<div class="message">
 			<p>{{message}}</p>

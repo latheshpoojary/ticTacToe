@@ -28,7 +28,7 @@
 				left: 50%;
 				transform: translate(-50%,-50%);
 				z-index: 99;
-				background-color: rgb(196, 196, 196);
+				box-shadow:inset rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;;
 				border-radius: 50%;
 				display: grid;
 				place-content: center;
@@ -65,8 +65,8 @@
 		grid-template-columns: repeat(3,1fr);
 		gap: 3vmin;
 		div{
-			width: 15vmin;
-			height: 15vmin;
+			width: 13vmin;
+			height: 13vmin;
 			background-color: #ffffff;
 			display: flex;
 			align-items: center;
@@ -115,7 +115,7 @@
 	justify-content: center;
 	
 	.container{
-		width: 450px;
+		width: min(350px,80%);
 		background-color: #fff;
 		// height: 500px;
 		text-align: center;
