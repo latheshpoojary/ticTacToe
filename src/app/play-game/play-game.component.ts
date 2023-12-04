@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { io } from 'socket.io-client';
 import * as confetti from 'confettis';
 import { environment } from '../../environments/environment.development';
-let socket = io(environment.tunnerUrl);
 
 @Component({
   selector: 'app-play-game',
@@ -11,6 +10,7 @@ let socket = io(environment.tunnerUrl);
   styleUrls: ['./play-game.component.scss'],
 })
 export class PlayGameComponent implements OnInit {
+  private socket: any;
   private room_id!: string | null;
   public activePlayer = 'X';
   public flag = true;
@@ -44,22 +44,24 @@ export class PlayGameComponent implements OnInit {
     private route: ActivatedRoute,
     private change: ChangeDetectorRef
   ) {
+  this.socket = io(environment.tunnerUrl);
+
     this.room_id = this.route.snapshot.paramMap.get('room-id');
     this.user_id = this.route.snapshot.paramMap.get('userID');
   }
 
   ngOnInit(): void {
     console.log('ng on init called ');
-    socket.on('disconnect', (reason) => {
+    this.socket.on('disconnect', (reason:any) => {
       console.log('Disconnected. Reason:', reason);
     });
-    socket.on('connect_error', (error) => {
+    this.socket.on('connect_error', (error:any) => {
       console.error('Connection error:', error);
     });
-    socket.on('connect', () => {
+    this.socket.on('connect', () => {
       console.log('connected');
 
-      socket.emit('users-connect', {
+      this.socket.emit('users-connect', {
         userId: this.uniqueUserId,
         roomId: this.room_id,
       });
@@ -68,16 +70,17 @@ export class PlayGameComponent implements OnInit {
     this.uniqueUserId = `${this.room_id}${this.user_id}`;
     this.change.detectChanges();
 
-   socket.on(`${this.room_id}`, (res: any) => {
+   this.socket.on(`${this.room_id}`, (res: any) => {
       console.log(res);
+      this.turn = res.turn;
       if (res.message) {
         this.showPopUp = false;
         this.counterO = 0;
         this.counterX = 0;
         this.gameArray.fill(null);
+        this.turn = 'X';
         this.change.detectChanges();
       }
-      this.turn = res.turn;
       clearInterval(this.counterInterval);
       if (this.turn === 'X') {
         this.counterO = 0;
@@ -113,7 +116,7 @@ export class PlayGameComponent implements OnInit {
 
   onClick(box: any, index: number) {
     if (this.uniqueUserId === `${this.room_id}1` && this.turn === 'X') {
-      socket.emit('ongame', {
+      this.socket.emit('ongame', {
         userId: this.uniqueUserId,
         index,
         value: 'X',
@@ -124,7 +127,7 @@ export class PlayGameComponent implements OnInit {
       this.activePlayer = 'O';
       this.flag = !this.flag;
     } else if (this.uniqueUserId === `${this.room_id}2` && this.turn === 'O') {
-      socket.emit('ongame', {
+      this.socket.emit('ongame', {
         userId: this.uniqueUserId,
         index,
         value: 'O',
@@ -203,7 +206,7 @@ export class PlayGameComponent implements OnInit {
   resetMatrix() {
     clearInterval(this.counterInterval);
     clearInterval(this.partyInterval);
-    socket.emit('playagain', { roomId: this.room_id });
+    this.socket.emit('playagain', { roomId: this.room_id });
   }
 
   startTimer(counter: string) {
