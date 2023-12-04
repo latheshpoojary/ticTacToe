@@ -23,6 +23,7 @@ let socket = io('https://gz7582r6-6000.inc1.devtunnels.ms');
   selector: 'app-play-game',
   templateUrl: './play-game.component.html',
   styleUrls: ['./play-game.component.scss'],
+ 
 })
 export class PlayGameComponent implements OnInit {
   private room_id!: string | null;
@@ -87,16 +88,7 @@ export class PlayGameComponent implements OnInit {
     this.change.detectChanges();
 
     let res = socket.on(`${this.room_id}`, (res: any) => {
-      console.log(res);
-      
-      if (res.message) {
-        console.log("im in message block");
-        
-        this.showPopUp = false;
-        
-        this.gameArray.fill(null);
-
-      }
+      console.log(res, 'res from the socket');
       this.turn = res.turn;
       clearInterval(this.counterInterval);
       if (this.turn === 'X') {
