@@ -1,34 +1,38 @@
 <div class="wrapper">
-<<<<<<< HEAD
 	<div class="player-board">
 		<div class="container">
+			<div class="outer">
+				<div class="inner">
 					<h1>X</h1>
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+				</div>
+			</div>
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
 				<defs>
 					<linearGradient id="GradientColor">
 						<stop offset="0%" stop-color="#DA22FF" />
 						<stop offset="100%" stop-color="#9733EE" />
 					</linearGradient>
 				</defs>
-				<circle stroke-linecap="round" [style.stroke-dashoffset]="counterX"/>
+				<circle cx="80" cy="80" r="70" stroke-linecap="round" [style.stroke-dashoffset]="counterX"/>
 			</svg>
 		</div>
 		<div class="container">
+			<div class="outer">
+				<div class="inner">
 					<h1>O</h1>
-			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" >
+				</div>
+			</div>
+			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="160px" height="160px">
 				<defs>
 					<linearGradient id="GradientColor">
 						<stop offset="0%" stop-color="#DA22FF" />
 						<stop offset="100%" stop-color="#9733EE" />
 					</linearGradient>
 				</defs>
-				<circle stroke-linecap="round" [style.stroke-dashoffset]="counterO"/>
+				<circle cx="80" cy="80" r="70" stroke-linecap="round" [style.stroke-dashoffset]="counterO"/>
 			</svg>
 		</div>
-
 	</div>
-=======
->>>>>>> parent of 27cd2a8 (added timer to the playground)
 	<div class="game-box">
 		<ng-container *ngFor="let box of gameArray;index as i;">
 			<div (click)="onClick(box,i)">
@@ -39,14 +43,14 @@
 </div>
 
 <!-- pop up  -->
-<div class="overlay" *ngIf="showPopUp" @fadeIn>
+<div class="overlay" *ngIf="showPopUp">
 	<div class="container">
 		<div class="image-container">
-			<img src="../../assets/image/celebrate.webp" alt="">
+			<img src="{{popUpImage}}" alt="">
 		</div>
 		<div class="message">
 			<p>{{message}}</p>
-			<p>You're the Tic Tac Toe champion! 🏆</p>
+			<p>{{cheerMessage}}</p>
 		</div>
 
 		<button (click)="resetMatrix()">Play again</button>

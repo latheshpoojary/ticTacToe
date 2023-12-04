@@ -1,9 +1,36 @@
-<div class="multi">
-	<div class="create">
-		<button [routerLink]="['/input','create','1']">Create</button>
+<div class="container">
+	<div class="input-container">
+		<div class="create-conatiner" [class.show-join]="show_join">
+			<h1>Create Room</h1>
+			<input type="text" placeholder="Create Room ID" [formControl]="form" maxlength="4" minlength="1" required>
+			<button (click)="onClick('create')" [disabled]="form.invalid">Create</button>
+			<div class="join-link">
+				Already room created? <a  (click)="show_join=true">Join</a>
+			</div>
+		</div>
+		<div class="join-container " [class.show-join]="show_join">
+			<h1>Join Room</h1>
+			<input type="text" placeholder="Enter Room ID" [formControl]="form" maxlength="4" minlength="1" required>
+			<button (click)="onClick('join')" [disabled]="form.invalid">Join</button>
+			<div class="join-link">
+				Not having room? <a (click)="show_join=false">Create</a>
+			</div>
+		</div>
 	</div>
-	<div class="join">
-		<button [routerLink]="['/input','join','2']">Join</button>
+
+</div>
+
+<!-- pop up  -->
+<div class="overlay" *ngIf="showError">
+	<div class="overlay-container">
+		<div class="image-container">
+			<img src="{{errorImage}}" alt="">
+		</div>
+		<div class="message">
+			<p>Warning</p>
+			<p>{{message}}</p>
+		</div>
+		<button type="button" (click)='showError = false'>Create new Room</button>
 	</div>
 </div>
 
